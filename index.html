@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=$*, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin:0;
+        }
+        .artplayer-app {
+            height: 100vh;
+        }
+        .art-info-content { 
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="artplayer-app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/devtools-detector"></script>
+    <script src="https://cdn.jsdelivr.net/npm/artplayer/dist/artplayer.js"></script>
+    
+    <script>
+        devtoolsDetector.addListener(function(isOpen) {
+          if (isOpen == true) {
+            document.location.replace("https://media.makeameme.org/created/voler-nest-pas.jpg");
+            setTimeout(() => {
+                window.location.reload()
+            },1000)
+          }
+        });
+        devtoolsDetector.launch();
+        var art = new Artplayer({
+            container: '.artplayer-app', 
+            // container: document.querySelector('.artplayer-app'),
+            url: "https://dl.videas.fr/v-medias/s4/uploaded/John.Wick.Chapter.4.2023.Multi.French_Vfq.1080P.Webrip.H264.Wawacity.Pics.mp4?fileName=John.Wick.Chapter.4.2023.Multi.French_Vfq.1080P.Webrip.H264.Wawacity.Pics.mp4",
+            flip : true,
+            setting:true,
+            playbackRate:true,
+            aspectRatio:true,
+            hotkey:true,
+            pip:true,
+            fullscreen:true,
+            autoPlayback: true,
+            lang:"fr",
+            quality: [
+                {
+                    default: true,
+                    html: 'HD',
+                    url: 'https://dl.videas.fr/v-medias/s4/uploaded/John.Wick.Chapter.4.2023.Multi.French_Vfq.1080P.Webrip.H264.Wawacity.Pics.mp4?fileName=John.Wick.Chapter.4.2023.Multi.French_Vfq.1080P.Webrip.H264.Wawacity.Pics.mp4',
+                }
+            ],
+            icons:{
+                state:'<img width="150" heigth="150" src="https://www.artplayer.org/assets/img/state.svg">'
+            }
+        });
+        art.contextmenu.show = false;
+        var view = document.createElement('div');
+        document.body.appendChild(view);
+
+    </script>
+</body>
+</html>
